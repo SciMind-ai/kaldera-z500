@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kaldera Z500 — 500 units, one engine</title>
+<meta name="description" content="Kaldera Z500: a fictional 500-unit superbike launch microsite.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Archivo:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><a class="logo" href="#" aria-label="Kaldera Moto home">KALDERA</a><button class="c-button c-button--design-regular" id="open-specs" aria-haspopup="dialog">Tech specs</button></header>
+
+<main class="home-page">
+ <div class="hero-reveal" id="hero" role="dialog" aria-modal="true" aria-label="Introduction">
+  <div class="hero-reveal__wrapper">
+   <div class="hero-reveal__logo">Z500</div>
+   <h2 class="hero-reveal__title">Five hundred numbered bikes. One engine built only for them. Scroll to ride through it.</h2>
+   <div class="hero-reveal__controls">
+    <button class="c-button c-button--raised c-button--disabled" id="start" disabled>Start experience</button>
+    <button class="c-button" id="skip">Skip intro</button>
+   </div>
+  </div>
+ </div>
+
+ <div class="scrolly-pin-target" id="pin">
+  <section class="scrolly-telling__content" id="stage">
+   <canvas class="scrolly-telling__canvas" id="cv" width="1280" height="720" aria-hidden="true"></canvas>
+
+   <article class="scrolly-telling__slide is-active" data-position="default">
+    <div class="intro-paragraph"><h2 class="intro-paragraph__title">Z500: built for the track, cleared for the road</h2><p class="intro-paragraph__description">A fictional flagship: lighter than its rivals, and tuned by hand.</p></div>
+    <div class="scrolly-telling__badges">
+     <dl class="badge-spec"><dt>212 hp</dt><dd>peak power</dd></dl>
+     <dl class="badge-spec"><dt>158 kg</dt><dd>dry weight</dd></dl>
+     <dl class="badge-spec"><dt>1.34 hp/kg</dt><dd>power to weight</dd></dl>
+    </div>
+   </article>
+   <article class="scrolly-telling__slide" data-position="center-right"><div class="intro-paragraph"><h2 class="intro-paragraph__title">Carbon from nose to tail</h2><p class="intro-paragraph__description">The frame, wheels and fairing share one weave, so the bike turns as one piece.</p></div></article>
+   <article class="scrolly-telling__slide" data-position="bottom-left"><div class="intro-paragraph"><h2 class="intro-paragraph__title">A new engine</h2><p class="intro-paragraph__description">Short stroke, high revs, and a note you can hear from the next paddock.</p></div></article>
+   <article class="scrolly-telling__slide" data-position="bottom-left"><div class="intro-paragraph"><h2 class="intro-paragraph__title">Brakes that read the road</h2><p class="intro-paragraph__description">Drilled discs shed heat fast, so the last stop feels like the first.</p></div></article>
+   <article class="scrolly-telling__slide" data-position="bottom-left"><div class="intro-paragraph"><h2 class="intro-paragraph__title">Numbered by hand</h2><p class="intro-paragraph__description">Each bike carries its own plate, from 001 to 500.</p></div></article>
+   <article class="scrolly-telling__slide" data-position="bottom-right"><div class="intro-paragraph"><h2 class="intro-paragraph__title">Red is the signal</h2><p class="intro-paragraph__description">One colour, used only where the bike works hardest.</p></div></article>
+   <article class="scrolly-telling__slide" data-position="bottom-center"><div class="intro-paragraph"><h2 class="intro-paragraph__title">Ride it once</h2><p class="intro-paragraph__description">Scroll on to see what’s behind the numbers.</p></div></article>
+
+   <div class="scroll-ruler" id="ruler" style="--ruler-progress:0%" role="progressbar" aria-label="Story progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+   <button class="scroll-down-affordance" id="hint" tabindex="-1">Scroll down</button>
+  </section>
+
+  <section class="gallery-selectors">
+   <p class="gallery-selectors__caption">Dive into details</p>
+   <button class="c-button c-button--design-gallery-selector" data-modal="dynamics"><strong>Extreme engineering</strong><span>The lightest parts we could make</span></button>
+   <button class="c-button c-button--design-gallery-selector" data-modal="engine"><strong>A new engine</strong><span>Built only for the Z500</span></button>
+   <button class="c-button c-button--design-gallery-selector" data-modal="collector"><strong>A collector’s dream</strong><span>Five hundred bikes, no two plates alike</span></button>
+   <button class="c-button c-button--design-gallery-selector" data-modal="livery"><strong>Celebrate more</strong><span>The anniversary livery</span></button>
+  </section>
+ </div>
+ <div class="ad-slot" id="ad-banner" aria-label="Advertisement"></div>
+ <p class="home-page__legal-box">Kaldera Moto and the Z500 are fictional, made for this demo. Figures are invented placeholders; swap in your own brand, copy and numbers before publishing.</p>
+</main>
+
+<footer class="footer"><span>© <span id="yr"></span> Kaldera Moto. All rights reserved.</span><a href="index.html">Home</a><a href="engine.html">Engine</a><a href="engineering.html">Engineering</a><a href="collector.html">Collector</a><a href="livery.html">Livery</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="about.html">About the Z500</a><a href="privacy.html">Privacy policy</a></footer>
+
+<dialog id="modal" aria-labelledby="m-title">
+ <button class="modal__close" aria-label="Close" id="m-close">×</button>
+ <h2 class="modal__title" id="m-title"></h2>
+ <p class="modal__intro" id="m-intro"></p>
+ <div class="slider"><div class="slider__slide"><div class="slider__kicker" id="s-k"></div><h3 class="slider__title" id="s-t"></h3><p class="slider__desc" id="s-d"></p></div>
+ <div class="slider__nav"><button class="c-button" id="s-prev" aria-label="Previous slide">Prev</button><button class="c-button" id="s-next" aria-label="Next slide">Next</button></div></div>
+</dialog>
+<div class="wipe" id="wipe" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/ads.js"></script>
+</body>
+</html>
