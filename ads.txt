@@ -1,0 +1,3 @@
+# Adsterra ke liye ads.txt zaroori hai ya nahi, iski tasdeeq mujhe Adsterra ke official documents mein nahi mili.
+# Agar Adsterra dashboard aap ko ads.txt ki line de, to wo line yahan bilkul wese hi paste karein.
+# Warna is file ko hata dein.
